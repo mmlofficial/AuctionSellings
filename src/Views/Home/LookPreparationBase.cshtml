@@ -1,0 +1,65 @@
+﻿
+@{
+    ViewBag.Title = "LookPreparationBase";
+}
+
+<h2>Все препараты на складе</h2>
+
+<html>
+<head>
+    <meta name="viewport" content="wIdth = device-wIdth" />
+    <link href="~/Content/Styles.css" rel="stylesheet" type="text/css" />
+    <title>Препараты на складе</title>
+</head>
+<body>
+    <div>
+        <table>
+            <tr>
+                <th>Id</th>
+                <th>Название</th>
+                <th>Количество</th>
+                <th>Цена</th>
+                <th>Вид упаковки</th>
+                <th>Ед. измерения</th>
+                <th>Код продукции</th>
+                <th>Масса (т.)</th>
+                <th></th>
+                <th></th>
+
+            </tr>
+            @foreach (var b in ViewBag.PreparationsBases)
+            {
+            <tr>
+                <td>@b.Id</td>
+                <td>@b.Name</td>
+                <td>@b.Amount</td>
+                <td>@b.Price</td>
+                <td>@b.PackageType</td>
+                <td>@b.Unit</td>
+                <td>@b.ProductionCode</td>
+                <td>@b.Weight</td>
+                @{
+                    string link = "EditPreparation/" + b.Id;
+                    string link2 = "DeletePreparation/" + b.Id;
+                }
+                <td>@Html.ActionLink("Изменить", @link, "Home")</td>
+                <td>@Html.ActionLink("Удалить", @link2, "Home")</td>
+            </tr>
+            }
+            <tr>
+                <td>@Html.ActionLink("Добавить", "AddPreparation", "Home")</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

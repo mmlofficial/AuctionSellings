@@ -1,0 +1,25 @@
+﻿@{
+    ViewBag.Title = "Редактировать дату оплаты препарата";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model MyProj.Models.Preparation
+<h2>Препарат @Model.Name</h2>
+@using (Html.BeginForm("EditPaymentDate", "Home", FormMethod.Post))
+{
+<fieldset>
+    @Html.HiddenFor(m => m.Id)
+    @Html.HiddenFor(m => m.Name)
+    @Html.HiddenFor(m => m.OrderInfoId)
+    @Html.HiddenFor(m => m.Total)
+    @Html.HiddenFor(m => m.TotalVAT)
+    @Html.HiddenFor(m => m.Amount)
+    @Html.HiddenFor(m => m.ExpirationDate)
+
+    <p>
+        @Html.LabelFor(m => m.PaymentDate, "Дата оплаты")
+        <br />
+        @Html.EditorFor(m => m.PaymentDate)
+    </p>
+    <p><input type="submit" value="Изменить" /></p>
+</fieldset>
+}

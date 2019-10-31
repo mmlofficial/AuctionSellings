@@ -1,0 +1,28 @@
+﻿@{
+    ViewBag.Title = "Search";
+}
+
+<h2>Поиск информации по аукциону</h2>
+
+<head>
+    <link href="~/Content/Styles.css" rel="stylesheet" type="text/css" />
+</head>
+
+<script type="text/javascript">
+    function OnFailure(request, error) {
+        $("#results").html("Данный аукцион не содержится в базе данных.");
+    }
+</script>
+
+<div>
+    @using (Ajax.BeginForm("SearchInfo", new AjaxOptions { UpdateTargetId = "results", OnFailure = "OnFailure", LoadingElementId = "loading", LoadingElementDuration = 1000}))
+    {
+        <input type="text" name="str" />
+        <input type="submit" value="Поиск" />
+    }
+    <img id="loading" src="@Url.Content("~/Content/Images/Magnify2.gif")" style="display:none" />
+    <div id="results"></div>
+    
+</div>
+@Scripts.Render("~/Scripts/jquery-1.10.2.min.js")
+@Scripts.Render("~/Scripts/jquery.unobtrusive-ajax.min.js")

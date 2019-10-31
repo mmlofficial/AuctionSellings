@@ -1,0 +1,43 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model MyProj.Models.PreparationsBase
+<h2>Удаление препарата</h2>
+<dl>
+    <dt>Название</dt>
+    <dd>
+        @Html.DisplayFor(model => model.Name)
+    </dd>
+
+    <dt>Количество</dt>
+    <dd>
+        @Html.DisplayFor(model => model.Amount)
+    </dd>
+
+    <dt>Цена</dt>
+    <dd>
+        @Html.DisplayFor(model => model.Price)
+    </dd>
+    <dt>Вид упаковки</dt>
+    <dd>
+        @Html.DisplayFor(model => model.PackageType)
+    </dd>
+    <dt>Единица измерения</dt>
+    <dd>
+        @Html.DisplayFor(model => model.Unit)
+    </dd>
+    <dt>Код продукции</dt>
+    <dd>
+        @Html.DisplayFor(model => model.ProductionCode)
+    </dd>
+    <dt>Масса (т.)</dt>
+    <dd>
+        @Html.DisplayFor(model => model.Weight)
+    </dd>
+
+</dl>
+
+@using (Html.BeginForm("DeletePreparation", "Home", FormMethod.Post))
+{
+    <input type="submit" value="Удалить" />
+}

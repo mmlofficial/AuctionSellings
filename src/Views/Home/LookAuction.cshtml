@@ -1,0 +1,32 @@
+﻿
+@{
+    ViewBag.Title = "LookAuction";
+}
+
+<h2>LookAuction</h2>
+
+<html>
+<head>
+    <meta name="viewport" content="wIdth = device-wIdth" />
+    <link href="~/Content/Styles.css" rel="stylesheet" type="text/css" />
+    <title>Auction</title>
+</head>
+<body>
+    <div>
+        <h3>Auction</h3>
+        <table>
+            <tr>
+                <th>Id</th>
+                <th>AuctionInfoId</th>
+            </tr>
+            @foreach (var b in ViewBag.Auctions)
+            {
+                <tr>
+                    <td>@b.Id</td>
+                    <td>@b.AuctionInfoId</td>
+                </tr>
+            }
+        </table>
+    </div>
+</body>
+</html>

@@ -1,0 +1,32 @@
+﻿
+@{
+    ViewBag.Title = "LookShipment";
+}
+
+<h2>LookShipment</h2>
+
+<html>
+<head>
+    <meta name="viewport" content="wIdth = device-wIdth" />
+    <link href="~/Content/Styles.css" rel="stylesheet" type="text/css" />
+    <title>Shipment</title>
+</head>
+<body>
+    <div>
+        <h3>Shipment</h3>
+        <table>
+            <tr>
+                <th>Id</th>
+                <th>ShipmentInfoId</th>
+            </tr>
+            @foreach (var b in ViewBag.Shipments)
+            {
+                <tr>
+                    <td>@b.Id</td>
+                    <td>@b.ShipmentInfoId</td>
+                </tr>
+            }
+        </table>
+    </div>
+</body>
+</html>

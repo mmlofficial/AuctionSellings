@@ -1,0 +1,47 @@
+﻿
+@{
+    ViewBag.Title = "Look";
+}
+<!DOCTYPE html>
+
+<h2>Look</h2>
+
+<html>
+<head>
+    <meta name="viewport" content="wIdth = device-wIdth" />
+    <link href="~/Content/Styles.css" rel="stylesheet" type="text/css" />
+    <title>Препараты</title>
+</head>
+<body>
+    <div>
+        <h3>Все Препараты</h3>
+        <table>
+            <tr>
+                <th>Id</th>
+                <th>OrderInfoId</th>
+                <th>Name</th>
+                <th>Amount</th>
+                <th>ExpirationDate</th>
+                <th>Total</th>
+                <th>TotalVAT</th>
+                <th>PaymentDate</th>
+
+            </tr>
+            @foreach (var b in ViewBag.Preparations)
+            {
+                <tr>
+                    <td>@b.Id</td>
+                    <td>@b.OrderInfoId</td>
+                    <td>@b.Name</td>
+                    <td>@b.Amount</td>
+                    <td>@b.ExpirationDate</td>
+                    <td>@b.Total</td>
+                    <td>@b.TotalVAT</td>
+                    <td>@b.PaymentDate</td>
+
+                </tr>
+            }
+        </table>
+    </div>
+</body>
+</html>

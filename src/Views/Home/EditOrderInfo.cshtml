@@ -1,0 +1,28 @@
+﻿@{
+    ViewBag.Title = "Редактировать информацию о заказе";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model MyProj.Models.OrderInfo
+<h2>Заказ №@Model.Id</h2>
+@using (Html.BeginForm("EditOrderInfo", "Home", FormMethod.Post))
+{
+<fieldset>
+    @Html.HiddenFor(m => m.Id)
+    @Html.HiddenFor(m => m.Date)
+    @Html.HiddenFor(m => m.CustomerCity)
+    @Html.HiddenFor(m => m.CustomerLocationArea)
+    @Html.HiddenFor(m => m.CustomerName)
+    
+    <p>
+        @Html.LabelFor(m => m.PreShipmentDate, "Дата предполагаемой отгрузки")
+        <br />
+        @Html.EditorFor(m => m.PreShipmentDate)
+    </p>
+    <p>
+        @Html.LabelFor(m => m.Status, "Статус заказа")
+        <br />
+        @Html.EditorFor(m => m.Status)
+    </p>
+    <p><input type="submit" value="Изменить" /></p>
+</fieldset>
+}

@@ -1,0 +1,60 @@
+﻿@{
+    ViewBag.Title = "AddFile";
+}
+
+<h2>Добавить файл</h2>
+
+<div id="dropArea">
+    Перетяните ваши файлы в эту область...
+</div>
+<h4>Загруженные файлы: </h4>
+<ul class="list-group" id="uploadList"></ul>
+
+<style>
+    #dropArea {
+        background: #b5b5b5;
+        border: black dashed 1px;
+        height: 50px;
+        text-align: center;
+        color: #fff;
+        padding-top: 12px;
+    }
+
+    .active-drop {
+        background: #77bafa !important;
+        border: solid 2px blue !important;
+        opacity: .5;
+        color: black !important;
+    }
+</style>
+@ViewBag.Message
+@section Scripts{
+    <script src="~/Scripts/jquery.filedrop.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $('#dropArea').filedrop({
+                url: '@Url.Action("UploadFiles")',
+                allowedfileextensions: ['.xlsx', '.xls'],
+                paramname: 'files',
+                maxfiles: 5,
+                maxfilesize : 5, // MB
+                dragOver: function () {
+                    $('#dropArea').addClass('active-drop');
+                },
+                dragLeave: function () {
+                    $('#dropArea').removeClass('active-drop');
+                },
+                drop: function () {
+                    $('#dropArea').removeClass('active-drop');
+                },
+                afterAll: function (e) {
+                    $('#dropArea').html('File(s) uploaded successfully');
+                },
+                uploadFinished: function (i, file, response, time) {
+                    $('#uploadList').append('<li class="list-group-item">' + file.name + '</li>');
+                }
+            })
+        })
+    </script>
+}
+

@@ -1,0 +1,36 @@
+﻿
+@{
+    ViewBag.Title = "LookAuctionInfo";
+}
+
+<h2>LookAuctionInfo</h2>
+
+<html>
+<head>
+    <meta name="viewport" content="wIdth = device-wIdth" />
+    <link href="~/Content/Styles.css" rel="stylesheet" type="text/css" />
+    <title>AuctionInfo</title>
+</head>
+<body>
+    <div>
+        <h3>AuctionInfo</h3>
+        <table>
+            <tr>
+                <th>Id</th>
+                <th>AuctionNumber</th>
+                <th>Date</th>
+                <th>Status</th>
+            </tr>
+            @foreach (var b in ViewBag.AuctionInfos)
+            {
+                <tr>
+                    <td>@b.Id</td>
+                    <td>@b.AuctionNumber</td>
+                    <td>@b.Date</td>
+                    <td>@b.Status</td>
+                </tr>
+            }
+        </table>
+    </div>
+</body>
+</html>

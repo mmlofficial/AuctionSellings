@@ -1,0 +1,19 @@
+﻿
+@{
+    ViewBag.Title = "Add Tender";
+}
+
+<h2>Добавить файл тендеров</h2>
+
+@using (Html.BeginForm("AddTender", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+
+    <div>
+        @Html.TextBox("file", "", new { type = "file" }) <br />
+
+        <input type="submit" value="Загрузить" />
+
+        @ViewBag.Message
+
+    </div>
+}  

@@ -1,0 +1,97 @@
+﻿@using MyProj.Help
+@model List<AllInfo>
+
+<br />
+<div id="searchresults">
+
+    <table>
+        <tr>
+            <th>Вся информация по аукциону : @Model.First().AuctionNumber</th>
+            <th></th>
+        </tr>
+        <tr>
+            <td>Номер аукциона</td>
+            <td>@Model.First().AuctionNumber</td>
+        </tr>
+        <tr>
+            <td>Дата аукциона</td>
+            <td>@Model.First().AuctionDate</td>
+        </tr>
+        <tr>
+            <td>Наименование заказчика</td>
+            <td>@Model.First().CustomerName</td>
+        </tr>
+        <tr>
+            <td>Область расположения заказчика</td>
+            <td>@Model.First().CustomerLocationArea</td>
+        </tr>
+        <tr>
+            <td>Город заказчика</td>
+            <td>@Model.First().CustomerCity</td>
+        </tr>
+        <tr>
+            <td>Название дистрибьютора</td>
+            <td>@Model.First().DistributorName</td>
+        </tr>
+        <tr>
+            <td>Номер заказа</td>
+            <td>@Model.First().OrderId</td>
+        </tr>
+        <tr>
+            <td>Дата заказа</td>
+            <td>@Model.First().OrderDate</td>
+        </tr>
+        <tr>
+            <td>Состояние заказа</td>
+            <td>@Model.First().OrderStatus</td>
+        </tr>
+        <tr>
+            <td>Дата предполагаемой отргузки</td>
+            <td>@Model.First().OrderPreShipmentDate</td>
+        </tr>
+        <tr>
+            <td>Дата отгрузки</td>
+            <td>@Model.First().ShipmentDate</td>
+        </tr>
+        <tr>
+            <td>Состояние отгрузки</td>
+            <td>@Model.First().ShipmentStatus</td>
+        </tr>
+
+    </table>
+    <br />
+    <table>
+        <tr>
+            <th></th>
+            <th>Название</th>
+            <th>Количество</th>
+            <th>Срок годности</th>
+            <th>Цена без НДС</th>
+            <th>Цена с НДС</th>
+            <th>Дата оплаты</th>
+            <th></th>
+        </tr>
+        @foreach (var item in Model.First().PreparationList)
+        {
+            <tr>
+                <th>Препарат</th>
+                <td>@item.Name</td>
+                <td>@item.Amount</td>
+                <td>@item.ExpirationDate</td>
+                <td>@item.Total</td>
+                <td>@item.TotalVAT</td>
+                <td>@item.PaymentDate</td>
+                @{
+                    string l = "EditPaymentDate/" + item.Id;
+                }
+                <td>@Html.ActionLink("Изменить дату оплаты", @l, "Home")</td>
+            </tr>
+        }
+    </table>
+    @{
+        string link = "EditOrderInfo/" + Model.First().OrderId;
+        string link2 = "EditShipmentInfo/" + Model.First().OrderId;
+    }
+    <h4>@Html.ActionLink("Изменить дату предполагаемой отгрузки и статус заказа", @link, "Home")</h4>
+    <h4>@Html.ActionLink("Изменить дату и статус отгрузки", @link2, "Home")</h4>
+</div>

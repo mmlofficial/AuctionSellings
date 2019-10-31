@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewBag.Title = "LookAll";
+}
+
+<h2>LookAll</h2>
+
+<html>
+<head>
+    <meta name="viewport" content="wIdth = device-wIdth" />
+    <link href="~/Content/Styles.css" rel="stylesheet" type="text/css" />
+    <title>LookAll</title>
+</head>
+<body>
+    <div>
+        <h3>LookAll</h3>
+        <table>
+            <tr>
+                <th>@Html.ActionLink("Auction", "LookAuction", "Home")</th>
+                <th>@Html.ActionLink("AuctionInfo", "LookAuctionInfo", "Home")</th>
+                <th>@Html.ActionLink("Distributor", "LookDistributor", "Home")</th>
+                <th>@Html.ActionLink("Preparation", "LookPreparation", "Home")</th>
+            </tr>
+            <tr>
+                <td>@Html.ActionLink("MainOrder", "LookMainOrder", "Home")</td>
+                <td>@Html.ActionLink("OrderInfo", "LookOrderInfo", "Home")</td>
+                <td>@Html.ActionLink("Shipment", "LookShipment", "Home")</td>
+                <td>@Html.ActionLink("ShipmentInfo", "LookShipmentInfo", "Home")</td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

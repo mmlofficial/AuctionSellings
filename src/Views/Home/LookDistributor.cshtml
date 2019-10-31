@@ -1,0 +1,32 @@
+﻿
+@{
+    ViewBag.Title = "LookDistributor";
+}
+
+<h2>LookDistributor</h2>
+
+<html>
+<head>
+    <meta name="viewport" content="wIdth = device-wIdth" />
+    <link href="~/Content/Styles.css" rel="stylesheet" type="text/css" />
+    <title>Distributor</title>
+</head>
+<body>
+    <div>
+        <h3>Distributor</h3>
+        <table>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+            </tr>
+            @foreach (var b in ViewBag.Distributors)
+            {
+                <tr>
+                    <td>@b.Id</td>
+                    <td>@b.Name</td>
+                </tr>
+            }
+        </table>
+    </div>
+</body>
+</html>

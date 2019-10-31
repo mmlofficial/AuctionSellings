@@ -1,0 +1,40 @@
+﻿@model MyProj.Models.PreparationsBase
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Новый препарат</h2>
+
+@using (Html.BeginForm("AddPreparation", "Home", FormMethod.Post))
+{
+    @Html.LabelFor(model => model.Name, "Название препарата")
+    <br />
+    @Html.EditorFor(model => model.Name)
+    <br /><br />
+    @Html.LabelFor(model => model.Amount, "Количество")
+    <br />
+    @Html.EditorFor(model => model.Amount)
+    <br /><br />
+    @Html.LabelFor(model => model.Price, "Цена")
+    <br />
+    @Html.EditorFor(model => model.Price)
+    <br /><br />
+    @Html.LabelFor(model => model.PackageType, "Вид упаковки")
+    <br />
+    @Html.EditorFor(model => model.PackageType)
+    <br /><br />
+    @Html.LabelFor(model => model.Unit, "Единица измерения")
+    <br />
+    @Html.EditorFor(model => model.Unit)
+    <br /><br />
+    @Html.LabelFor(model => model.ProductionCode, "Код продукции")
+    <br />
+    @Html.EditorFor(model => model.ProductionCode)
+    <br /><br />
+    @Html.LabelFor(model => model.Weight, "Масса (т.)")
+    <br />
+    @Html.EditorFor(model => model.Weight)
+    <br /><br />
+    <input type="submit" value="Добавить" />
+}

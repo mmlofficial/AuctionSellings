@@ -1,0 +1,48 @@
+﻿@{
+    ViewBag.Title = "Редактировать препарат";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model MyProj.Models.PreparationsBase
+<h2>Препарат "@Model.Name"</h2>
+@using (Html.BeginForm("EditPreparation", "Home", FormMethod.Post))
+{
+<fieldset>
+    @Html.HiddenFor(m => m.Id)
+    <p>
+        @Html.LabelFor(m => m.Name, "Название препарата")
+        <br />
+        @Html.EditorFor(m => m.Name)
+    </p>
+    <p>
+        @Html.LabelFor(m => m.Price, "Количество")
+        <br />
+        @Html.EditorFor(m => m.Amount)
+    </p>
+    <p>
+        @Html.LabelFor(m => m.Price, "Цена")
+        <br />
+        @Html.EditorFor(m => m.Price)
+    </p>
+    <p>
+        @Html.LabelFor(m => m.PackageType, "Вид упаковки")
+        <br />
+        @Html.EditorFor(m => m.PackageType)
+    </p>
+    <p>
+        @Html.LabelFor(m => m.Unit, "Единица измерения")
+        <br />
+        @Html.EditorFor(m => m.Unit)
+    </p>
+    <p>
+        @Html.LabelFor(m => m.ProductionCode, "Код продукции")
+        <br />
+        @Html.EditorFor(m => m.ProductionCode)
+    </p>
+    <p>
+        @Html.LabelFor(m => m.Weight, "Масса (т.)")
+        <br />
+        @Html.EditorFor(m => m.Weight)
+    </p>
+    <p><input type="submit" value="Изменить" /></p>
+</fieldset>
+}

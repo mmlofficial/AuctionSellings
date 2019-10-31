@@ -1,0 +1,36 @@
+﻿
+@{
+    ViewBag.Title = "LookMainOrder";
+}
+
+<h2>LookMainOrder</h2>
+
+<html>
+<head>
+    <meta name="viewport" content="wIdth = device-wIdth" />
+    <link href="~/Content/Styles.css" rel="stylesheet" type="text/css" />
+    <title>MainOrder</title>
+</head>
+<body>
+    <div>
+        <h3>MainOrder</h3>
+        <table>
+            <tr>
+                <th>Id</th>
+                <th>OrderInfoId</th>
+                <th>AuctionId</th>
+                <th>ShipmentId</th>
+            </tr>
+            @foreach (var b in ViewBag.MainOrders)
+            {
+                <tr>
+                    <td>@b.Id</td>
+                    <td>@b.OrderInfoId</td>
+                    <td>@b.AuctionId</td>
+                    <td>@b.ShipmentId</td>
+                </tr>
+            }
+        </table>
+    </div>
+</body>
+</html>
